@@ -20,19 +20,10 @@ while (retry_counter < 100):
                 for i in range(1,40000):
                     t0 = time.clock()
                     pipe.multi()
-                    for j in range (0,10):
+                    for j in range (0,1):
                         # print ("key:", str(i) + "-" + str(j) + "{"+ str(target_shard) +"}")
                         pipe.set(str(key_prefix) + "-" + str(j) + "{"+ str(i) +"}",
                             {'a1': "1", 'a2': "".zfill(100)})
-                for i in range(1,4000):
-                    t0 = time.clock()
-                    pipe.multi()
-                    for j in range (0,100):
-                        # print ("key:", str(i) + "-" + str(j) + "{"+ str(target_shard) +"}")
-                        pipe.set(str(key_prefix) + "-" + str(j) + "{"+ str(i) +"}",
-                            {'a1': "1", 'a2': "".zfill(1000)})
-                        # conn.watch(str(key_prefix) + "-" + str(j) + "{"+ str(i) +"}")
-                        # pipe.get(str(key_prefix) + "-" + str(j) + "{"+ str(i) +"}")
                     pipe.execute()
                     t1 = time.clock()
                     print("Last batch execution time: {:6.3f} ms - AVG Command execution time in batch: {:6.3f} ms"
