@@ -17,17 +17,19 @@ while (retry_counter < 100):
         pipe = conn.pipeline(transaction=False)
         while (retry_counter < 100):
             try:
-                for i in range(1,40000):
+                for i in range(1,400):
                     t0 = time.clock()
                     pipe.multi()
-                    for j in range (0,1):
+                    for j in range (0,10):
                         # print ("key:", str(i) + "-" + str(j) + "{"+ str(target_shard) +"}")
-                        pipe.set(str(key_prefix) + "-" + str(j) + "{"+ str(i) +"}",
+                        pipe.getset(str(key_prefix) + "-" + str(j) + "{"+ str(i) +"}",
                             {'a1': "1", 'a2': "".zfill(100)})
                     pipe.execute()
                     t1 = time.clock()
                     print("Last batch execution time: {:6.3f} ms - AVG Command execution time in batch: {:6.3f} ms"
                         .format(((t1 - t0) * 1000), ((t1 - t0) * 1000)/10))
+                #finish the loop
+                retry_counter = 100
             except redis.ConnectionError:
                 if (downtime == 0) or ((time.clock() - downtime) > 1000):
                     downtime = time.clock()
