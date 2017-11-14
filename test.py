@@ -57,27 +57,6 @@ while (retry_counter < 100):
                             str(key_prefix) + "-8" + "{" + str(i) + "}" :
                             value,
                             str(key_prefix) + "-9" + "{" + str(i) + "}" :
-=======
-                    conn.mset({str(key_prefix) + "-0" + "{"+ str(i) +"}":
-                            value,
-                            str(key_prefix) + "-1" + "{"+ str(i) +"}":
-                            value,
-                            str(key_prefix) + "-2" + "{"+ str(i) +"}":
-                            value,
-                            str(key_prefix) + "-3" + "{"+ str(i) +"}":
-                            value,
-                            str(key_prefix) + "-4" + "{"+ str(i) +"}":
-                            value,
-                            str(key_prefix) + "-5" + "{"+ str(i) +"}":
-                            value,
-                            str(key_prefix) + "-6" + "{"+ str(i) +"}":
-                            value,
-                            str(key_prefix) + "-7" + "{"+ str(i) +"}":
-                            value,
-                            str(key_prefix) + "-8" + "{"+ str(i) +"}":
-                            value,
-                            str(key_prefix) + "-9" + "{"+ str(i) +"}":
->>>>>>> 9b1db19253f5bc9b6fc8cd55280c80bd0bb2a19e
                             value})
 
                     #capture timings
