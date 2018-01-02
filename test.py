@@ -37,25 +37,26 @@ while (retry_counter < 100):
 
                     #MSET WITHOUT PIPELINE
                     value = "'a1': '1', 'a2':" + "".zfill(100)+ "}"
-                    conn.mset({str(key_prefix) + "-0" + "{"+ str(i) +"}":
+<<<<<<< HEAD
+                    conn.mset({str(key_prefix) + "-0" + "{" + str(i) + "}" :
                             value,
-                            str(key_prefix) + "-1" + "{"+ str(i) +"}":
+                            str(key_prefix) + "-1" + "{" + str(i) + "}" :
                             value,
-                            str(key_prefix) + "-2" + "{"+ str(i) +"}":
+                            str(key_prefix) + "-2" + "{" + str(i) + "}" :
                             value,
-                            str(key_prefix) + "-3" + "{"+ str(i) +"}":
+                            str(key_prefix) + "-3" + "{" + str(i) + "}" :
                             value,
-                            str(key_prefix) + "-4" + "{"+ str(i) +"}":
+                            str(key_prefix) + "-4" + "{" + str(i) + "}" :
                             value,
-                            str(key_prefix) + "-5" + "{"+ str(i) +"}":
+                            str(key_prefix) + "-5" + "{" + str(i) + "}" :
                             value,
-                            str(key_prefix) + "-6" + "{"+ str(i) +"}":
+                            str(key_prefix) + "-6" + "{" + str(i) + "}" :
                             value,
-                            str(key_prefix) + "-7" + "{"+ str(i) +"}":
+                            str(key_prefix) + "-7" + "{" + str(i) + "}" :
                             value,
-                            str(key_prefix) + "-8" + "{"+ str(i) +"}":
+                            str(key_prefix) + "-8" + "{" + str(i) + "}" :
                             value,
-                            str(key_prefix) + "-9" + "{"+ str(i) +"}":
+                            str(key_prefix) + "-9" + "{" + str(i) + "}" :
                             value})
 
                     #capture timings
@@ -75,7 +76,7 @@ while (retry_counter < 100):
                             .format(curr_pipeline_latency, curr_pipeline_avg_ops_latency))
                 
                 #finish the loop
-                retry_counter = 100
+                # retry_counter = 100
 
                 print(key_prefix + " - pipeline execution time: MAX {:6.3f} ms - MIN  {:6.3f} ms"
                         .format(max_ops_latency, min_ops_latency))
